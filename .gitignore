@@ -1,0 +1,47 @@
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+.venv/
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Pytest cache
+.cache/
+
+# LaTeX auxiliary files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.fdb_latexmk
+*.log
+*.synctex.gz
+*.toc
+*.out
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+
+# LaTeX editor swap files
+*~
+*.swp
+*.bak
+
+# Miscellaneous
+Thumbs.db
+.DS_Store
+
+personal-data-local.tex
+coverletter-local.tex

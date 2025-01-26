@@ -1,0 +1,152 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{article} 
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome} 
+\usepackage[british]{babel}
+\usepackage{ragged2e}
+\usepackage{graphicx}        
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\titlespacing*{\title}{0pt}{-10pt}{10pt}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[sfdefault]{roboto}
+\usepackage[british]{datetime2}
+\usepackage{tikz}
+
+\usepackage[
+	a4paper, % Paper size
+	top=1in, % Top margin
+	bottom=1in, % Bottom margin
+	left=1in, % Left margin
+	right=1in, % Right margin
+	%showframe % Uncomment to show frames for debugging purposes
+]{geometry}
+
+\setlength{\parindent}{0pt} % Paragraph indentation
+\setlength{\parskip}{1em} % Vertical space between paragraphs
+
+\definecolor{cvblue}{HTML}{333333}
+%\definecolor{cvblue}{HTML}{FF0000}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% DATA
+%----------------------------------------------------------------------------------------
+
+% Import the personal data
+\input{personal-data.tex}
+%\input{personal-data-local.tex}
+
+%----------------------------------------------------------------------------------------
+% HEADER AND FOOTER CONFIGURATION
+%----------------------------------------------------------------------------------------
+% Fancy header and footer setup
+\pagestyle{fancy}
+\fancyhf{} % Clears all header and footer fields
+
+% Remove the default header rule
+\renewcommand{\headrulewidth}{0pt}
+
+% Set the footer rule width and color
+\renewcommand{\footrulewidth}{1pt} % Footer line thickness
+\renewcommand{\footrule}{\color{cvblue}\hrule} % Set footer line color to cvblue
+
+% Footer content with colored icons
+\fancyfoot[C]{%
+    \vspace{0.2cm}\\
+    {\Large \textcolor{cvblue}{\href{mailto:\email}{\faEnvelope}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{https://wa.me/\phone}{\faWhatsapp}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{\github}{\faGithub}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{\linkedin}{\faLinkedinSquare}}}
+}
+
+%----------------------------------------------------------------------------------------
+%   YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+% Add the colored box with name and address, starting from top-left corner
+\begin{tikzpicture}[remember picture, overlay]
+    % Draw the blue block at the very top of the page, spanning the full width
+    \fill[cvblue] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
+
+    % Add title "Letter of motivation"
+    \node[anchor=north west, text=white] at ([xshift=0.5in, yshift=-0.3in]current page.north west) {
+        \large \textbf{Letter of Motivation}
+    };
+
+    % Add the text inside the blue block, aligned to the right
+    \node[anchor=north east, text=white] at ([xshift=-0.5in, yshift=-0.3in]current page.north east) {
+        \begin{tabular}{@{}p{0.5cm}l@{}}
+            & \large \textbf{\name} \\[0.8ex]
+            & \street \\[0.4ex]
+            & \city \\[0.4ex]
+            & \country \\[0.8ex]
+        \end{tabular}
+    };
+\end{tikzpicture}
+
+\vspace{2.5cm}
+\bigskip
+\bigskip
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING
+%----------------------------------------------------------------------------------------
+\newcommand{\COMPANY}{_COMPANY_}
+\newcommand{\ROLE}{_ROLE_}
+\newcommand{\JobPostingURL}{_URL_}
+\newcommand{\CITY}{_CITY_}
+\newcommand{\COUNTRY}{_COUNTRY_}
+
+\begin{tabular}{@{}p{0cm}l@{}} 
+ & \textbf{\COMPANY} \\[0.8ex] 
+ %& STREET \\[0.4ex] 
+ & \CITY, \COUNTRY
+\end{tabular}
+
+\bigskip % Vertical whitespace
+
+% Date -1 day
+%\hfill \today \bigskip\\ 
+\hfill \DTMdisplaydate{\year}{\month}{\numexpr\day-1}{.}
+
+% Custom bold, bigger, and underlined title
+\noindent \textbf{\underline{Application for \href{\JobPostingURL}{\ROLE}}}
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+To the Esteemed Hiring Team at \COMPANY,
+
+\bigskip
+
+I am excited to apply for the position of \ROLE\ at \COMPANY\ in \CITY. Having spent several years engineering and maintaining droids in various star systems across the galaxy, I am eager to bring my expertise in robotic systems and artificial intelligence to a cutting-edge organization such as yours.
+
+I have spent my career designing and optimizing astromech droids for a variety of missions, including navigating hyperspace routes, assisting with planetary surface exploration, and conducting repairs in extreme environments. At Sarlacc Solutions, I worked on integrating advanced AI into droid systems, ensuring seamless interaction with human crews, and improving performance across multiple platforms. My previous role as a **Droid Repair Specialist** at **Tatooine Tech**, where I led a team of engineers in maintaining and upgrading astromech droids, further refined my skills in AI, programming, and robotics.
+
+I have a passion for problem-solving and innovation, and I believe my technical skills and adaptability make me an ideal candidate for your organization. Whether it’s designing more efficient energy systems for droids or troubleshooting complex mechanical issues during missions, I thrive in dynamic environments where quick thinking and creative solutions are required.
+
+I am enthusiastic about the opportunity to contribute to the continued success of \COMPANY\ and am excited to bring my skills to the \ROLE\ role. I am particularly drawn to your mission of advancing droid technology, and I am confident that my background and enthusiasm would be a valuable addition to your team.
+
+I look forward to the opportunity to discuss how I can contribute to the success of \COMPANY.
+
+\bigskip
+
+Sincerely,
+
+\vspace{20pt}
+
+\name
+
+\end{document}
