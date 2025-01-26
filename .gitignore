@@ -44,4 +44,4 @@ Thumbs.db
 .DS_Store
 
 personal-data-local.tex
-coverletter-local.tex
+#coverletter-local.tex
