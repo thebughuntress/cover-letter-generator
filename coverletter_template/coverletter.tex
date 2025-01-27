@@ -33,8 +33,8 @@
 \setlength{\parindent}{0pt} % Paragraph indentation
 \setlength{\parskip}{1em} % Vertical space between paragraphs
 
-\definecolor{cvblue}{HTML}{333333}
-%\definecolor{cvblue}{HTML}{FF0000}
+
+\definecolor{cvcolor}{HTML}{_COLOR_}
 
 %----------------------------------------------------------------------------------------
 
@@ -60,15 +60,15 @@
 
 % Set the footer rule width and color
 \renewcommand{\footrulewidth}{1pt} % Footer line thickness
-\renewcommand{\footrule}{\color{cvblue}\hrule} % Set footer line color to cvblue
+\renewcommand{\footrule}{\color{cvcolor}\hrule} % Set footer line color to cvcolor
 
 % Footer content with colored icons
 \fancyfoot[C]{%
     \vspace{0.2cm}\\
-    {\Large \textcolor{cvblue}{\href{mailto:\email}{\faEnvelope}}} \hspace{0.5cm}
-    {\Large \textcolor{cvblue}{\href{https://wa.me/\phone}{\faWhatsapp}}} \hspace{0.5cm}
-    {\Large \textcolor{cvblue}{\href{\github}{\faGithub}}} \hspace{0.5cm}
-    {\Large \textcolor{cvblue}{\href{\linkedin}{\faLinkedinSquare}}}
+    {\Large \textcolor{cvcolor}{\href{mailto:\email}{\faEnvelope}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{https://wa.me/\phone}{\faWhatsapp}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{\github}{\faGithub}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{\linkedin}{\faLinkedinSquare}}}
 }
 
 %----------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@
 % Add the colored box with name and address, starting from top-left corner
 \begin{tikzpicture}[remember picture, overlay]
     % Draw the blue block at the very top of the page, spanning the full width
-    \fill[cvblue] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
+    \fill[cvcolor] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
 
     % Add title "Letter of motivation"
     \node[anchor=north west, text=white] at ([xshift=0.5in, yshift=-0.3in]current page.north west) {

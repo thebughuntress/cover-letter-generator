@@ -12,9 +12,10 @@ from cleanup_folder import cleanup_folder
 def get_default_value(value, default_value):
     return value.strip() if value and value.strip() else default_value
 
-def on_generate_tex(company_var, role_var, city_var, country_var, timestamp_var, url_var, placeholder_var):
+def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color_var, timestamp_var, placeholder_var):
     USE_FILENAME_WITH_TIMESTAMP = timestamp_var.get()
     USE_STARWARS_PLACEHOLDERS = placeholder_var.get()
+    COLOR = color_var.get()
 
     # Get values from Tkinter StringVars
     if USE_STARWARS_PLACEHOLDERS:
@@ -31,7 +32,7 @@ def on_generate_tex(company_var, role_var, city_var, country_var, timestamp_var,
         url = url_var.get()
 
     # Generate .tex file and return its path
-    tex_file_path = generate_tex(company, role, city, country, USE_FILENAME_WITH_TIMESTAMP, url)
+    tex_file_path = generate_tex(company, role, url, city, country, COLOR, USE_FILENAME_WITH_TIMESTAMP)
     
     # Update the tex_file variable in the main function
     global tex_file

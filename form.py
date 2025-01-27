@@ -1,13 +1,16 @@
 import tkinter as tk
 
+# Default color value
+DEFAULT_COLOR = "#333333"
+
 def create_form(on_generate_tex, on_generate_pdf):
     # Create the main Tkinter window
     top = tk.Tk()
     top.title("Cover Letter Generator")
 
     # Center the window on the screen
-    window_width = 600
-    window_height = 400
+    window_width = 650
+    window_height = 500
     screen_width = top.winfo_screenwidth()
     screen_height = top.winfo_screenheight()
     x_position = (screen_width - window_width) // 2
@@ -20,6 +23,10 @@ def create_form(on_generate_tex, on_generate_pdf):
     url_var = tk.StringVar()
     city_var = tk.StringVar()
     country_var = tk.StringVar()
+
+    # Initialize the color variable with the default value
+    color_var = tk.StringVar(value=DEFAULT_COLOR)
+
     timestamp_var = tk.BooleanVar(value=False)  # Checkbox for timestamp (default: False)
     cleanup_var = tk.BooleanVar(value=True)    # Checkbox for cleanup (default: True)
     placeholder_var = tk.BooleanVar(value=False)  # Checkbox for placeholders
@@ -40,6 +47,9 @@ def create_form(on_generate_tex, on_generate_pdf):
     tk.Label(top, text="Country").pack(padx=20)
     tk.Entry(top, textvariable=country_var).pack(padx=20)
 
+    tk.Label(top, text="Color").pack(padx=20)
+    tk.Entry(top, textvariable=color_var).pack(padx=20)
+
     # Checkboxes for additional options
     tk.Checkbutton(top, text="Filename with timestamp", variable=timestamp_var).pack(pady=5)
     tk.Checkbutton(top, text="Delete LaTeX log and auxiliary files", variable=cleanup_var).pack(pady=5)
@@ -51,11 +61,12 @@ def create_form(on_generate_tex, on_generate_pdf):
         text="Generate LaTeX files", 
         command=lambda: on_generate_tex(
             company_var, 
-            role_var, 
+            role_var,
+            url_var,
             city_var, 
             country_var, 
+            color_var,
             timestamp_var, 
-            url_var, 
             placeholder_var
         )
     )
