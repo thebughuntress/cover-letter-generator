@@ -16,8 +16,8 @@ python main.py
 
 ## Files to Edit
 
-- `tex/personal-data.tex`: Input your personal details here, such as your name, address, and email address. This file contains placeholders for your data, which will be used to generate the cover letter.
-- `coverletter_template/coverletter.tex`: This is the LaTeX template for the cover letter. You can modify the structure and content of the cover letter in this file. The placeholders in this template will be replaced with your personal data from personal-data.tex and and input from the Tkinter form.
+- `coverletter_template/personal-data.tex`: Input your personal details here, such as your name, address, and email address. This file contains placeholders for your data, which will be used to generate the cover letter.
+- `coverletter_template/coverletter.tex`: This is the LaTeX template for the cover letter. You can modify the structure and content of the cover letter in this file. The placeholders in this template will be replaced with your personal data from `personal-data.tex` and the input from the Tkinter form.
 
 ## Preview
 

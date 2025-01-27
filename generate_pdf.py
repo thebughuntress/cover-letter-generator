@@ -29,7 +29,7 @@ def generate_pdf(tex_file):
 
     try:
         shutil.move(pdf_output, moved_pdf_path)
-        messagebox.showinfo("Success", f"PDF generated and moved to {moved_pdf_path}")
+        #messagebox.showinfo("Success", f"PDF generated and moved to {moved_pdf_path}")
         print(f"PDF saved to: {moved_pdf_path}")
     except Exception as e:
         messagebox.showerror("Error", f"Failed to move PDF: {e}")

@@ -1,9 +1,12 @@
 import os
 import time
 
+# path to personal data file
+PERSONAL_DATA_FILE = "../coverletter_template/personal-data.tex"
+COVERLETTER_FILENAME = "coverletter.tex"
+
 # Path to the template file
-#template_path = os.path.join(os.getcwd(), "coverletter_template", "coverletter-local.tex")
-template_path = os.path.join(os.getcwd(), "coverletter_template", "coverletter.tex")
+template_path = os.path.join(os.getcwd(), "coverletter_template", COVERLETTER_FILENAME)
 
 def generate_tex(company, role, url, city, country, color, filename_with_timestamp):
     # Ensure the 'tex' folder exists
@@ -31,6 +34,7 @@ def generate_tex(company, role, url, city, country, color, filename_with_timesta
     tex_content = tex_content.replace("_CITY_", city)
     tex_content = tex_content.replace("_COUNTRY_", country)
     tex_content = tex_content.replace("_URL_", url)
+    tex_content = tex_content.replace("_PATH_TO_FILE_", PERSONAL_DATA_FILE)
 
     # Replace '#' with an empty string if it exists
     color = color.replace("#", "")
