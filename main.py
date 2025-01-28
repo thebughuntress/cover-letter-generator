@@ -43,7 +43,7 @@ def on_generate_pdf(cleanup_var):
 
         if DO_CLEANUP:
             # Clean up temporary files
-            cleanup_folder()
+            cleanup_folder(delete_folder=True)
             messagebox.showinfo("Success", "PDF generated and temporary files cleaned up!")
     else:
         messagebox.showwarning("Error", "No .tex file found. Please generate it first.")
