@@ -3,7 +3,7 @@ import subprocess
 import tkinter as tk
 from tkinter import messagebox
 
-from form import create_form
+from generate_form import generate_form
 from generate_tex import generate_tex
 from generate_pdf import generate_pdf
 from cleanup_folder import cleanup_folder
@@ -12,24 +12,16 @@ from cleanup_folder import cleanup_folder
 def get_default_value(value, default_value):
     return value.strip() if value and value.strip() else default_value
 
-def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color_var, timestamp_var, placeholder_var):
+def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color_var, timestamp_var):
     USE_FILENAME_WITH_TIMESTAMP = timestamp_var.get()
-    USE_STARWARS_PLACEHOLDERS = placeholder_var.get()
     COLOR = color_var.get()
 
     # Get values from Tkinter StringVars
-    if USE_STARWARS_PLACEHOLDERS:
-        company = get_default_value(company_var.get(), "R2-D2 TECHNOLOGIES, LTD.").upper()
-        role = get_default_value(role_var.get(), "ASTROMECH DROID ENGINEER").upper()
-        city = get_default_value(city_var.get(), "CORUSCANT,").upper()
-        country = get_default_value(country_var.get(), "GALACTIC REPUBLIC").upper()
-        url = get_default_value(url_var.get(), "https://www.esa.int/About_Us/Careers_at_ESA/Apply_now_to_become_an_ESA_astronaut")
-    else:
-        company = company_var.get()
-        role = role_var.get()
-        city =city_var.get()
-        country = country_var.get()
-        url = url_var.get()
+    company = company_var.get()
+    role = role_var.get()
+    city =city_var.get()
+    country = country_var.get()
+    url = url_var.get()
 
     # Generate .tex file and return its path
     tex_file_path = generate_tex(company, role, url, city, country, COLOR, USE_FILENAME_WITH_TIMESTAMP)
@@ -62,7 +54,7 @@ if __name__ == "__main__":
     tex_file = None
 
     # Create the form and pass necessary functions
-    top, generate_pdf_button = create_form(on_generate_tex, on_generate_pdf)
+    form, generate_pdf_button = generate_form(on_generate_tex, on_generate_pdf)
 
     # Run the Tkinter event loop
-    top.mainloop()
+    form.mainloop()
