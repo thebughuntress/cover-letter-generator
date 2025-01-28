@@ -6,7 +6,7 @@ from tkinter import messagebox
 from generate_form import generate_form
 from generate_tex import generate_tex
 from generate_pdf import generate_pdf
-from cleanup_folder import cleanup_folder
+from rm_tex_files import rm_tex_files
 
 # Helper function to check for empty or None values
 def get_default_value(value, default_value):
@@ -33,18 +33,15 @@ def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color
     # Enable the "Generate PDF" button after .tex file is generated
     generate_pdf_button.config(state=tk.NORMAL)
 
-def on_generate_pdf(cleanup_var):
-    
-    DO_CLEANUP = cleanup_var.get()
+def on_generate_pdf(keep_tex_files_var):
 
     if tex_file:
-        # Generate the PDF from the .tex file
+        # Generate the PDF
         generate_pdf(tex_file)
+        messagebox.showinfo("Success", "PDF generated!")
 
-        if DO_CLEANUP:
-            # Clean up temporary files
-            cleanup_folder(delete_folder=True)
-            messagebox.showinfo("Success", "PDF generated and temporary files cleaned up!")
+        if not keep_tex_files_var.get():
+            rm_tex_files()
     else:
         messagebox.showwarning("Error", "No .tex file found. Please generate it first.")
 

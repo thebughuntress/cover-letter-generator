@@ -31,7 +31,7 @@ def generate_form(on_generate_tex, on_generate_pdf):
     color_var = tk.StringVar(value=DEFAULT_COLOR)
     filename_var = tk.StringVar(value=DEFAULT_FILENAME)
     timestamp_var = tk.BooleanVar(value=False)  # Checkbox for timestamp (default: False)
-    cleanup_var = tk.BooleanVar(value=True)    # Checkbox for cleanup (default: True)
+    keep_tex_files_var = tk.BooleanVar(value=False)  # Checkbox for keeping tex files (default: False)
     placeholder_var = tk.BooleanVar(value=False)  # Checkbox for placeholders
 
     # Function to update company name based on checkbox state
@@ -41,7 +41,7 @@ def generate_form(on_generate_tex, on_generate_pdf):
             role_var.set("ASTROMECH DROID ENGINEER")  
             city_var.set("CORUSCANT") 
             country_var.set("GALACTIC REPUBLIC")
-            url_var.set("https://www.esa.int/About_Us/Careers_at_ESA")
+            url_var.set("https://www.lucasfilm.com/careers/")
             color_var.set("#1d146e")
         else:
             company_var.set("")  # Clear the company name if not checked
@@ -98,7 +98,7 @@ def generate_form(on_generate_tex, on_generate_pdf):
     # Checkbuttons for additional options (aligned to the left)
     tk.Checkbutton(frame_settings, text="Filename with timestamp", variable=timestamp_var, anchor="w", command=update_filename).grid(row=2, column=0, columnspan=2, pady=2, padx=10, sticky="w")
     tk.Checkbutton(frame_settings, text="Use STARSWARS placeholders", variable=placeholder_var, anchor="w", command=update_entries).grid(row=3, column=0, columnspan=2, pady=2, padx=10, sticky="w")
-    tk.Checkbutton(frame_settings, text="Delete LaTeX log and auxiliary files", variable=cleanup_var, anchor="w").grid(row=4, column=0, columnspan=2, pady=2, padx=10, sticky="w")
+    tk.Checkbutton(frame_settings, text="Keep LaTeX files", variable=keep_tex_files_var, anchor="w").grid(row=4, column=0, columnspan=2, pady=2, padx=10, sticky="w")
 
     # Create a frame for the buttons at the bottom
     button_frame = tk.Frame(root)
@@ -123,7 +123,7 @@ def generate_form(on_generate_tex, on_generate_pdf):
     generate_pdf_button = tk.Button(
         button_frame, 
         text="Generate PDF", 
-        command=lambda: on_generate_pdf(cleanup_var), 
+        command=lambda: on_generate_pdf(keep_tex_files_var), 
         state=tk.DISABLED  # Initially disabled until .tex is generated
     )
     generate_pdf_button.pack(side="left", padx=10)
