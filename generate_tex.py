@@ -8,18 +8,14 @@ COVERLETTER_FILENAME = "coverletter.tex"
 # Path to the template file
 template_path = os.path.join(os.getcwd(), "coverletter_template", COVERLETTER_FILENAME)
 
-def generate_tex(company, role, url, city, country, color, filename_with_timestamp):
+def generate_tex(company, role, url, city, country, color, filename):
     # Ensure the 'tex' folder exists
     tex_folder = os.path.join(os.getcwd(), "tex")
     if not os.path.exists(tex_folder):
         os.makedirs(tex_folder)
 
-    # Generate a timestamped filename inside the 'tex' folder
-    if filename_with_timestamp:
-        timestamp = time.strftime("%Y%m%d_%H%M%S")
-        output_file_path = os.path.join(tex_folder, f"coverletter_{timestamp}.tex")
-    else:
-        output_file_path = os.path.join(tex_folder, f"coverletter.tex")
+    # Generate a the output file path
+    output_file_path = os.path.join(tex_folder, f"{filename}.tex")
 
     if not os.path.exists(template_path):
         raise FileNotFoundError(f"Template file not found at: {template_path}")
