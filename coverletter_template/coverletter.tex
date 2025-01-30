@@ -34,20 +34,27 @@
 \setlength{\parskip}{1em} % Vertical space between paragraphs
 
 
-\definecolor{cvcolor}{HTML}{_COLOR_}
+%----------------------------------------------------------------------------------------
+% PERSONAL AND COMPANY DATA 
+%----------------------------------------------------------------------------------------
+% Import the personal data
+\input{PATHTOFILEX}
+%\input{../personal-data.tex}
+%\input{../personal-data-example.tex}
 
 %----------------------------------------------------------------------------------------
+% COLOR SETTINGS
+%----------------------------------------------------------------------------------------
+
+\definecolor{cvblue}{HTML}{\cvcolor}
+%\definecolor{cvblue}{HTML}{COLORX}
 
 \begin{document}
 
-%----------------------------------------------------------------------------------------
-% DATA
-%----------------------------------------------------------------------------------------
-
-% Import the personal data
-%\input{../coverletter_template/personal-data.tex}
-%\input{../coverletter_template/personal-data-local.tex}
-\input{_PATH_TO_FILE_}
+\newcommand{\COMPANY}{COMPANYX}
+\newcommand{\ROLE}{ROLEX}
+\newcommand{\CITY}{CITYX}
+\newcommand{\COUNTRY}{COUNTRYX}
 
 %----------------------------------------------------------------------------------------
 % HEADER AND FOOTER CONFIGURATION
@@ -61,54 +68,48 @@
 
 % Set the footer rule width and color
 \renewcommand{\footrulewidth}{1pt} % Footer line thickness
-\renewcommand{\footrule}{\color{cvcolor}\hrule} % Set footer line color to cvcolor
+\renewcommand{\footrule}{\color{cvblue}\hrule} % Set footer line color to cvblue
 
 % Footer content with colored icons
 \fancyfoot[C]{%
     \vspace{0.2cm}\\
-    {\Large \textcolor{cvcolor}{\href{mailto:\email}{\faEnvelope}}} \hspace{0.5cm}
-    {\Large \textcolor{cvcolor}{\href{https://wa.me/\phone}{\faWhatsapp}}} \hspace{0.5cm}
-    {\Large \textcolor{cvcolor}{\href{\github}{\faGithub}}} \hspace{0.5cm}
-    {\Large \textcolor{cvcolor}{\href{\linkedin}{\faLinkedinSquare}}}
+    {\Large \textcolor{cvblue}{\href{mailto:\emailAddress}{\faEnvelope}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{https://wa.me/\phoneNumber}{\faWhatsapp}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{\githubUrl}{\faGithub}}} \hspace{0.5cm}
+    {\Large \textcolor{cvblue}{\href{\linkedinUrl}{\faLinkedinSquare}}}
 }
 
 %----------------------------------------------------------------------------------------
-%   YOUR NAME AND CONTACT INFORMATION
+%	YOUR NAME AND CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
 
 % Add the colored box with name and address, starting from top-left corner
 \begin{tikzpicture}[remember picture, overlay]
     % Draw the blue block at the very top of the page, spanning the full width
-    \fill[cvcolor] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
+    \fill[cvblue] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
 
-    % Add title "Letter of motivation"
-    \node[anchor=north west, text=white] at ([xshift=0.5in, yshift=-0.3in]current page.north west) {
-        \large \textbf{Letter of Motivation}
-    };
+    % Add the text inside the blue block, aligned to the left
+    \node[anchor=center, text=white] at ([yshift=-0.8in]current page.north -| current page.center) {
+        
+        \hfill 
+\begin{tabular}{@{}p{0.5cm}l@{}}   
+ & \textbf{\firstName\ \lastName} \\[0.8ex]
+ & \street \\[0.4ex] 
+ & \city \\[0.4ex] 
+ & \country\\[0.8ex] 
+\end{tabular}
 
-    % Add the text inside the blue block, aligned to the right
-    \node[anchor=north east, text=white] at ([xshift=-0.5in, yshift=-0.3in]current page.north east) {
-        \begin{tabular}{@{}p{0.5cm}l@{}}
-            & \large \textbf{\name} \\[0.8ex]
-            & \street \\[0.4ex]
-            & \city \\[0.4ex]
-            & \country \\[0.8ex]
-        \end{tabular}
     };
 \end{tikzpicture}
 
-\vspace{3cm}
+\vspace{2.5cm}
 \bigskip
 \bigskip
+
 
 %----------------------------------------------------------------------------------------
 %	ADDRESSEE AND GREETING
 %----------------------------------------------------------------------------------------
-\newcommand{\COMPANY}{_COMPANY_}
-\newcommand{\ROLE}{_ROLE_}
-\newcommand{\JobPostingURL}{_URL_}
-\newcommand{\CITY}{_CITY_}
-\newcommand{\COUNTRY}{_COUNTRY_}
 
 \begin{tabular}{@{}p{0cm}l@{}} 
  & \textbf{\COMPANY} \\[0.8ex] 
@@ -120,33 +121,33 @@
 
 % Date -1 day
 %\hfill \today \bigskip\\ 
-%\hfill \DTMdisplaydate{\year}{\month}{\numexpr\day-1}{.}
-\hfill 48 ABY
+\hfill \DTMdisplaydate{\year}{\month}{\numexpr\day-1}{.}
 
 % Custom bold, bigger, and underlined title
-\noindent \textbf{\underline{Application for \href{\JobPostingURL}{\ROLE}}}
+\noindent \textbf{\underline{Application for \ROLE}}
 
 %----------------------------------------------------------------------------------------
 %	LETTER CONTENT
 %----------------------------------------------------------------------------------------
-To the Esteemed Hiring Team at \COMPANY,
+To the Esteemed Hiring Team,
+\bigskip
+
+I am excited to apply for the \ROLE\ role at \COMPANY\ in \CITY. Since my graduation with a Master of Science degree in Electrical Engineering and Information Technology in December 2020, I have been working as a software engineer with a primary focus on Python programming, web development, and cloud engineering.
+
+Working in different fields and projects has given me a strong foundation in Python programming and web development with React, TypeScript, and JavaScript. At \companyNow, I worked on projects across industries such as telecommunications, automotive, and energy. My role involved building new applications from the ground up, implementing new features, and fixing bugs while collaborating in agile and international teams and maintaining close contact with stakeholders to ensure alignment with business needs. During my master's internship at BMW, I developed an application in C\# for the automatic translation of bus protocols. This reduced the translation process from hours to seconds while simultaneously increasing robustness and reliability, significantly optimizing processes.
+
+Beyond my technical expertise, I am adaptable, communicative, and always eager to explore new technologies and share my knowledge. My personal GitHub profile showcases my passion for IT and programming, extending beyond professional projects. I thrive in collaborative environments, and working alongside skilled, motivated colleagues and supportive managers has contributed to my technical and personal growth. Along with enjoying the technical aspects, as a teamplayer, I also appreciate simplicity and thoughtful design, principles that lead to maintainable, efficient, and better solutions. I place a strong emphasis on testing to ensure that software is reliable, robust, and free from defects. If there are any skills in the job description that I am not yet familiar with, I am eager to learn them.
+
+After about four years of working remotely as a software engineer, I am now looking for a new hybrid IT role that will allow me to relocate near \CITY. I am eager to find a role that offers strong career growth, a supportive team environment, and the opportunity to work on agile projects, where I can apply my expertise, learn new skills, and embrace new challenges.
+
+I am looking forward to hearing from \COMPANY. 
 
 \bigskip
 
-I’m thrilled to apply for the position of \ROLE\ at \COMPANY\ in \CITY. After years of engineering and fine-tuning droids across the galaxy, I’m excited to bring my expertise in robotics and AI to a forward-thinking organization like yours.
+Sincerely,
 
-Over the years, I’ve specialized in crafting astromech droids for all kinds of galactic adventures—whether it's charting hyperspace lanes, exploring uncharted planets, or performing repairs in the most extreme conditions. At \currentEmployer, I focus on integrating cutting-edge AI into droid systems, making sure they interact flawlessly with human crews while boosting efficiency, functionality, and user experience. As a Droid Specialist, I led a team of engineers in keeping our astromech fleet running smoothly, all while sharpening my skills in AI, programming, and robotics.
+\vspace{1pt}
 
-I am enthusiastic about the opportunity to contribute to the continued success of \COMPANY\ and am excited to bring my skills to the \ROLE\ role. I am particularly drawn to your mission of advancing droid technology, and I am confident that my background and enthusiasm would be a valuable addition to your team.
-
-With all the stars aligned, I await eagerly for a message from \COMPANY.
-
-\bigskip
-
-May the Force be with you,
-
-\vspace{10pt}
-
-\name
+\firstName\ \lastName
 
 \end{document}

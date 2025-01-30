@@ -32,11 +32,11 @@ def generate_form(on_generate_tex, on_generate_pdf):
     filename_var = tk.StringVar(value=DEFAULT_FILENAME)
     timestamp_var = tk.BooleanVar(value=False)  # Checkbox for timestamp (default: False)
     keep_tex_files_var = tk.BooleanVar(value=False)  # Checkbox for keeping tex files (default: False)
-    placeholder_var = tk.BooleanVar(value=False)  # Checkbox for placeholders
+    sw_placeholder_var = tk.BooleanVar(value=False)  # Checkbox for placeholders
 
     # Function to update company name based on checkbox state
     def update_entries():
-        if placeholder_var.get():  # If the checkbox is checked
+        if sw_placeholder_var.get():  # If the checkbox is checked
             company_var.set("R2-D2 TECHNOLOGIES, LTD.")
             role_var.set("ASTROMECH DROID ENGINEER")  
             city_var.set("CORUSCANT") 
@@ -97,7 +97,7 @@ def generate_form(on_generate_tex, on_generate_pdf):
 
     # Checkbuttons for additional options (aligned to the left)
     tk.Checkbutton(frame_settings, text="Filename with timestamp", variable=timestamp_var, anchor="w", command=update_filename).grid(row=2, column=0, columnspan=2, pady=2, padx=10, sticky="w")
-    tk.Checkbutton(frame_settings, text="Use STARSWARS placeholders", variable=placeholder_var, anchor="w", command=update_entries).grid(row=3, column=0, columnspan=2, pady=2, padx=10, sticky="w")
+    tk.Checkbutton(frame_settings, text="Use STARSWARS placeholders", variable=sw_placeholder_var, anchor="w", command=update_entries).grid(row=3, column=0, columnspan=2, pady=2, padx=10, sticky="w")
     tk.Checkbutton(frame_settings, text="Keep LaTeX files", variable=keep_tex_files_var, anchor="w").grid(row=4, column=0, columnspan=2, pady=2, padx=10, sticky="w")
 
     # Create a frame for the buttons at the bottom
@@ -115,7 +115,8 @@ def generate_form(on_generate_tex, on_generate_pdf):
             city_var, 
             country_var, 
             color_var,
-            filename_var
+            filename_var,
+            sw_placeholder_var
         )
     )
     generate_tex_button.pack(side="left", padx=10)

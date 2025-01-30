@@ -12,9 +12,10 @@ from rm_tex_files import rm_tex_files
 def get_default_value(value, default_value):
     return value.strip() if value and value.strip() else default_value
 
-def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color_var, filename_var):
+def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color_var, filename_var, sw_placeholder_var):
     FILENAME = filename_var.get()
     COLOR = color_var.get()
+    SW_PLACEHOLDER = sw_placeholder_var.get()
 
     # Get values from Tkinter StringVars
     company = company_var.get()
@@ -24,7 +25,7 @@ def on_generate_tex(company_var, role_var, url_var, city_var, country_var, color
     url = url_var.get()
 
     # Generate .tex file and return its path
-    tex_file_path = generate_tex(company, role, url, city, country, COLOR, FILENAME)
+    tex_file_path = generate_tex(company, role, url, city, country, COLOR, FILENAME, SW_PLACEHOLDER)
     
     # Update the tex_file variable in the main function
     global tex_file

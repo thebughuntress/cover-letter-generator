@@ -1,0 +1,152 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+\documentclass[10pt, a4paper]{article} 
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome} 
+\usepackage[british]{babel}
+\usepackage{ragged2e}
+\usepackage{graphicx}        
+\usepackage{xcolor}
+\usepackage{pifont}
+\usepackage{enumitem}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\titlespacing*{\title}{0pt}{-10pt}{10pt}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[sfdefault]{roboto}
+\usepackage[british]{datetime2}
+\usepackage{tikz}
+
+\usepackage[
+	a4paper, % Paper size
+	top=1in, % Top margin
+	bottom=1in, % Bottom margin
+	left=1in, % Left margin
+	right=1in, % Right margin
+	%showframe % Uncomment to show frames for debugging purposes
+]{geometry}
+
+\setlength{\parindent}{0pt} % Paragraph indentation
+\setlength{\parskip}{1em} % Vertical space between paragraphs
+
+
+\definecolor{cvcolor}{HTML}{COLORX}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% DATA
+%----------------------------------------------------------------------------------------
+
+% Import the personal data
+%\input{../coverletter_template/personal-data.tex}
+%\input{../coverletter_template/personal-data-local.tex}
+\input{PATHTOFILEX}
+
+%----------------------------------------------------------------------------------------
+% HEADER AND FOOTER CONFIGURATION
+%----------------------------------------------------------------------------------------
+% Fancy header and footer setup
+\pagestyle{fancy}
+\fancyhf{} % Clears all header and footer fields
+
+% Remove the default header rule
+\renewcommand{\headrulewidth}{0pt}
+
+% Set the footer rule width and color
+\renewcommand{\footrulewidth}{1pt} % Footer line thickness
+\renewcommand{\footrule}{\color{cvcolor}\hrule} % Set footer line color to cvcolor
+
+% Footer content with colored icons
+\fancyfoot[C]{%
+    \vspace{0.2cm}\\
+    {\Large \textcolor{cvcolor}{\href{mailto:\\emailAddress}{\faEnvelope}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{https://wa.me/\phoneNumber}{\faWhatsapp}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{\githubUrl}{\faGithub}}} \hspace{0.5cm}
+    {\Large \textcolor{cvcolor}{\href{\linkedinUrl}{\faLinkedinSquare}}}
+}
+
+%----------------------------------------------------------------------------------------
+%   YOUR NAME AND CONTACT INFORMATION
+%----------------------------------------------------------------------------------------
+
+% Add the colored box with name and address, starting from top-left corner
+\begin{tikzpicture}[remember picture, overlay]
+    % Draw the blue block at the very top of the page, spanning the full width
+    \fill[cvcolor] (current page.north west) rectangle ([yshift=-1.5in]current page.north east); % Blue block with height
+
+    % Add title "Letter of motivation"
+    \node[anchor=north west, text=white] at ([xshift=0.5in, yshift=-0.3in]current page.north west) {
+        \large \textbf{Letter of Motivation}
+    };
+
+    % Add the text inside the blue block, aligned to the right
+    \node[anchor=north east, text=white] at ([xshift=-0.5in, yshift=-0.3in]current page.north east) {
+        \begin{tabular}{@{}p{0.5cm}l@{}}
+            & \large \textbf{\name} \\[0.8ex]
+            & \street \\[0.4ex]
+            & \city \\[0.4ex]
+            & \country \\[0.8ex]
+        \end{tabular}
+    };
+\end{tikzpicture}
+
+\vspace{3cm}
+\bigskip
+\bigskip
+
+%----------------------------------------------------------------------------------------
+%	ADDRESSEE AND GREETING
+%----------------------------------------------------------------------------------------
+\newcommand{\COMPANY}{COMPANYX}
+\newcommand{\ROLE}{ROLEX}
+\newcommand{\JobPostingURL}{URLX}
+\newcommand{\CITY}{CITYX}
+\newcommand{\COUNTRY}{COUNTRYX}
+
+\begin{tabular}{@{}p{0cm}l@{}} 
+ & \textbf{\COMPANY} \\[0.8ex] 
+ %& STREET \\[0.4ex] 
+ & \CITY, \COUNTRY
+\end{tabular}
+
+\bigskip % Vertical whitespace
+
+% Date -1 day
+%\hfill \today \bigskip\\ 
+%\hfill \DTMdisplaydate{\year}{\month}{\numexpr\day-1}{.}
+\hfill 48 ABY
+
+% Custom bold, bigger, and underlined title
+\noindent \textbf{\underline{Application for \href{\JobPostingURL}{\ROLE}}}
+
+%----------------------------------------------------------------------------------------
+%	LETTER CONTENT
+%----------------------------------------------------------------------------------------
+To the Esteemed Hiring Team at \COMPANY,
+
+\bigskip
+
+I’m thrilled to apply for the position of \ROLE\ at \COMPANY\ in \CITY. After years of engineering and fine-tuning droids across the galaxy, I’m excited to bring my expertise in robotics and AI to a forward-thinking organization like yours.
+
+Over the years, I’ve specialized in crafting astromech droids for all kinds of galactic adventures—whether it's charting hyperspace lanes, exploring uncharted planets, or performing repairs in the most extreme conditions. At \companyNow, I focus on integrating cutting-edge AI into droid systems, making sure they interact flawlessly with human crews while boosting efficiency, functionality, and user experience. As a Droid Specialist, I led a team of engineers in keeping our astromech fleet running smoothly, all while sharpening my skills in AI, programming, and robotics.
+
+I am enthusiastic about the opportunity to contribute to the continued success of \COMPANY\ and am excited to bring my skills to the \ROLE\ role. I am particularly drawn to your mission of advancing droid technology, and I am confident that my background and enthusiasm would be a valuable addition to your team.
+
+With all the stars aligned, I await eagerly for a message from \COMPANY.
+
+\bigskip
+
+May the Force be with you,
+
+\vspace{10pt}
+
+\name
+
+\end{document}
