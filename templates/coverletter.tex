@@ -16,22 +16,19 @@
 %-------------------------------------------------------------------------------
 % PERSONAL DATA
 %-------------------------------------------------------------------------------
-% Import the personal data
-\input{PATHTOFILE1}
-%\input{../shared/personal-data.tex}  
+\input{../shared/personal-data.tex}  
 %\input{../shared/personal-data-example.tex}
 
 %-------------------------------------------------------------------------------
 % JOB POSTING
 %-------------------------------------------------------------------------------
-%\input{../shared/job-posting.tex}
-\input{PATHTOFILE2}
+\input{../shared/job-posting.tex}
 
 %-------------------------------------------------------------------------------
 % CONFIGURATIONS
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{../templates/awesome-cv}
+\documentclass[11pt, a4paper]{awesome-cv}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -60,12 +57,12 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-\photo[circle,noedge,left]{../templates/images/\imageFileName}
+\photo[circle,noedge,left]{\imagePath}
 \name{\firstName}{\lastName}
 \position{\job}
 \address{\city, \country}
 
-\mobile{+4915146782868}
+\mobile{\phoneNumber}
 \email{\emailAddress}
 %\homepage{\homepageUrl}{\homepageName}
 %\github{\githubName}
@@ -127,7 +124,7 @@
 %	LETTER CONTENT
 %-------------------------------------------------------------------------------
 \begin{cvletter}
-\input{PATHTOFILE3}
+\input{../shared/letter.tex}
 \end{cvletter}
 
 
