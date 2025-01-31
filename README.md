@@ -29,4 +29,4 @@ python main.py
 Once you've generated your cover letter, you can view the result in the pdf folder.
 This gives you an idea of how the generated cover letter looks like: [View Cover Letter PDF](pdf/coverletter.pdf)
 
-<img src="images/coverletter.png" alt="Cover Letter Preview" style="border: 2px solid black; width: 75%;" />
+<img src="images/sw-coverletter.png" alt="Cover Letter Preview" style="border: 2px solid black; width: 75%;" />
